@@ -1,0 +1,16 @@
+.container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8%;
+}
+
+mat-card{
+    width: 60%;
+}
+
+mat-card > mat-card{
+    width: 100%;
+ 
+}

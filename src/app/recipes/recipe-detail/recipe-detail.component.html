@@ -1,0 +1,61 @@
+<mat-card>
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive center-block" style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ recipe.name }}</h1>
+  </div>
+</div>
+
+<!--Comento esta parte porque no funciona el dropdown. Lo reemplazo por el momento por tres botones. REVISAR!!!-->
+
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <div
+      class="btn-group"
+      appDropdown>
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Manage Recipe <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-xs-12">
+    {{ recipe.description }}
+  </div>
+</div>
+<hr>
+<mat-list>
+<mat-list-item>
+  <h4 matHeader><u>Ingredients:</u></h4>
+</mat-list-item>
+  <mat-list-item *ngFor="let ingredient of recipe.ingredients">
+    <mat-icon mat-list-icon>cookie</mat-icon>
+    <div mat-line>{{ ingredient.name }} - {{ ingredient.amount }}</div>
+  </mat-list-item>
+</mat-list>
+
+<div>
+<button mat-raised-button color="primary" (click)="onAddToShoppingList()">Add Ingredients To Shopping List</button>
+
+<div class="btn-group btn-group pull-right">
+  <button mat-raised-button color="accent" (click)="onEditRecipe()">Edit Recipe</button>
+  <button mat-raised-button color="warn" (click)="onDeleteRecipe()">Delete Recipe</button> 
+</div>
+</div>
+<br>
+</mat-card>
+
+

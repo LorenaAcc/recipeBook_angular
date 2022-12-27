@@ -1,0 +1,22 @@
+
+<div class="container">
+  <mat-card>
+    <!-- <div class="container"> -->
+    <!-- <mat-card> -->
+      <app-shopping-edit></app-shopping-edit>
+    <!-- </mat-card> -->
+  <!-- </div> -->
+    <hr>
+   
+    <mat-card>
+      <mat-action-list>
+          <mat-list-item style="cursor: pointer"
+          *ngFor="let ingredient of ingredients; let i = index"
+          (click)="onEditItem(i)">
+          {{ ingredient.name }} ({{ ingredient.amount }})
+          </mat-list-item>
+      </mat-action-list>
+    </mat-card>
+   
+  </mat-card>
+</div>

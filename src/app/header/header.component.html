@@ -1,0 +1,50 @@
+<mat-sidenav-container style="background: inherit;" fullscreen>
+  
+  <mat-sidenav #sidenav mode="push">
+    <mat-toolbar color="accent">
+      <mat-icon mat-icon>menu</mat-icon>
+      <span>Menú</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>close</mat-icon>
+      </button>        
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink="/recipes" mat-list-item routerLinkActive="active" *ngIf="isAuthenticated" (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Recipes</span>
+      </a>
+
+      <a routerLink="/auth" mat-list-item routerLinkActive="active" *ngIf="!isAuthenticated" (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span>Authenticate</span>
+      </a>
+      
+      <a routerLink="/shopping-list" mat-list-item routerLinkActive="active" (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>list_alt</mat-icon>
+        <span>Shopping List</span>
+      </a>       
+    </mat-nav-list>    
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary"> 
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="spacer"></span>
+      <button mat-raised-button *ngIf="isAuthenticated" (click)="onManage('3000ms', '1500ms')">Manage</button>
+
+      <button mat-button *ngIf="isAuthenticated" (click)="onLogout()">Logout</button>
+      <button style="border-radius: 6px; background-color:rgb(203, 198, 198)">
+      <a id="slide">
+        <mat-slide-toggle class="math-slide-toggle mat-accent" type="button" (click)="onCallParentSetTheme()"> <fa-icon icon="moon"></fa-icon> | <fa-icon icon="sun"></fa-icon>
+        </mat-slide-toggle>
+      </a>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

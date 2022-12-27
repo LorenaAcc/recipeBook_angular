@@ -1,0 +1,38 @@
+<mat-card>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+  <mat-grid-list cols="2" rowHeight="3:1">
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. Tomatoes" type="text" id="name" name="name" required class="form-control" ngModel>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" placeholder="Ex. 12" id="amount" name="amount" class="form-control" ngModel required pattern="^[1-9]+[0-9]*$">
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+  <mat-grid-list cols="3" rowHeight="3:2">
+
+    <mat-grid-tile>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+    </mat-grid-tile> 
+    <mat-grid-tile>
+      <button mat-raised-button color="accent" class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
+    </mat-grid-tile> 
+    <mat-grid-tile> 
+      <button mat-raised-button color="warn" class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+    </mat-grid-tile> 
+
+  </mat-grid-list> 
+
+</form>
+</mat-card>

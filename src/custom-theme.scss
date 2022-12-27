@@ -1,0 +1,41 @@
+//@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+@include mat-core();
+
+$recipe-light-primary: mat-palette($mat-blue,800);
+$recipe-light-accent: mat-palette($mat-green,800);
+$recipe-light-warn: mat-palette($mat-red,500);
+
+
+
+$recipe-dark-primary: mat-palette($mat-purple,A700);
+$recipe-dark-accent: mat-palette($mat-blue,A400);
+$recipe-dark-warn: mat-palette($mat-red,A400);
+
+
+$recipe-light-theme: mat-light-theme($recipe-light-primary, $recipe-light-accent, $recipe-light-warn);
+$recipe-dark-theme: mat-dark-theme($recipe-dark-primary, $recipe-dark-accent, $recipe-dark-warn);
+
+@include angular-material-theme($recipe-dark-theme);
+
+.dark-theme{
+    @include angular-material-theme($recipe-dark-theme);
+    background: rgb(51, 52, 59);
+    color: rgb(212, 89, 89);
+}
+
+.light-theme{
+    @include angular-material-theme($recipe-light-theme);
+    background: rgb(220, 214, 214);
+    color: #222;
+}
+
+
+.mat-slide-toggle-bar {
+    background-color: rgb(204, 102, 237) !important;
+  }
+
+  .mat-slide-toggle-thumb {
+    background-color: #681db4 !important;
+}
