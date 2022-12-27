@@ -26,7 +26,7 @@ export class AuthService{
   signUp(email: string, password:string){
     return this.http
     .post<AuthResponseData>(
-        'http://localhost:8080/api/auth/signUp',
+        'https://restserver-lore.onrender.com/api/auth/signUp',
         {
             email:email,
             password:password,
@@ -49,7 +49,7 @@ export class AuthService{
   login(email: string, password: string) {
     return this.http
     .post<AuthResponseData>(
-        'http://localhost:8080/api/auth/signIn',
+        'https://restserver-lore.onrender.com/api/auth/signIn',
         {
             email: email,
             password: password,
